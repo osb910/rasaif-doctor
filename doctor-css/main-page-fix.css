@@ -1,0 +1,31 @@
+h2.eng {
+  font-family: 'Source Serif Pro', sans-serif;
+}
+
+.elementor-heading-title {
+  cursor: default;
+}
+
+#main form input[type='search'].orig {
+  width: 100%;
+  padding: 0;
+  font-size: 1.2rem;
+  font-family: 'Lato', 'Calibri', sans-serif;
+}
+
+form input[type='search']::placeholder {
+  font-size: inherit;
+}
+
+form input[type='text'] {
+  display: none;
+}
+
+.elementor-flip-box__back
+  :where(.elementor-flip-box__layer__title, .elementor-flip-box__layer__description) {
+  font-family: 'Source Serif Pro', sans-serif;
+}
+
+.jet-listing-dynamic-field__content p {
+  font-size: 1rem;
+}

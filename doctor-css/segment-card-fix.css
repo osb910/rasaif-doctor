@@ -1,0 +1,341 @@
+/* @import url('../assets/fonts/UthmanTN1\ Ver10.otf'); */
+
+@font-face {
+  font-family: 'Uthman Taha';
+  src: local('KFGQPC Uthman Taha Naskh'),
+    url('../assets/fonts/UthmanTN1\ Ver10.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Uthman Taha';
+  font-weight: 700;
+  src: local('KFGQPC Uthman Taha Naskh'),
+    url('../assets/fonts/UthmanTN1B\ Ver10.otf') format('opentype');
+}
+
+.segment {
+  display: grid;
+  gap: 0.75em;
+  padding: 0.5em;
+  /*   font-family: 'Uthman Taha'; */
+  font-size: 1.2rem;
+  border-radius: 5px;
+  text-align: justify;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  transition: all 300ms ease-in-out;
+}
+
+.segment:where(:hover, :focus) {
+  transform: translateY(-3px);
+}
+
+.segment section {
+  margin: 0;
+  display: grid;
+}
+
+/*
+extension id:
+blkgcalckdgnpbleipphfhfaefddogpb
+'chrome-extension://__MSG_@@extension_id__/assets/rasaif-back.jpg'
+*/
+.segment .book-title {
+  background-image: url('https://rasaif.com/wp-content/uploads/2021/05/main-back.jpg');
+  background-repeat: repeat;
+  background-size: contain;
+  border-radius: 5px 5px 0 0;
+}
+
+.segment :is(.book-title, .segment-text) :is(h3, p) {
+  margin: 0;
+  padding-inline-end: 0.75em;
+  line-height: 1.7;
+}
+
+.segment .book-title h3 {
+  padding: 0.4em;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.8;
+  color: #fff;
+}
+
+.segment .frn-title {
+  font-family: 'Lato', sans-serif;
+  /* justify-self: end; */
+}
+
+.segment .ar-title {
+  font-family: 'KFGQPC Uthman Taha Naskh';
+  font-weight: 700;
+}
+
+.segment .segment-text {
+  align-items: start;
+}
+
+.segment .ar-text {
+  font-size: 1.25rem;
+}
+
+.segment .frn-text {
+  font-family: 'Source Serif Pro', serif;
+  font-size: 1.05rem;
+}
+
+.segment .segment-text a {
+  text-decoration: unset;
+  color: unset;
+  cursor: pointer;
+}
+
+.segment .segment-text p {
+  color: #444;
+  text-indent: 1em;
+  padding-inline: 0.5em;
+}
+
+.rasaif-match {
+  padding: 0 0.2em;
+  border-radius: 4px;
+  display: inline-block;
+  font-weight: 600;
+  text-indent: 0;
+  color: #222;
+}
+
+.segment-buttons {
+  padding: 0.5em 0;
+  display: grid;
+  gap: 0.5em;
+  background-color: #e5e5e580;
+  border-radius: 0 0 5px 5px;
+}
+
+.segment-buttons :is(.nav-buttons, .share-buttons) {
+  margin: 0 auto;
+  padding: 0 0.2em;
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  gap: 0.5em;
+  justify-content: center;
+  align-items: center;
+}
+
+.segment-buttons .nav-buttons > li:first-child {
+  grid-area: prev;
+}
+
+.copy-button {
+  order: 1;
+}
+
+.copy-button:nth-child(2) {
+  grid-area: source;
+}
+
+.copy-button:nth-child(3) {
+  grid-area: segment;
+}
+
+.copy-button:nth-child(4) {
+  grid-area: target;
+}
+
+.segment-buttons .nav-buttons > li:last-child {
+  grid-area: next;
+}
+
+@media (min-width: 351px) {
+  .segment-buttons .nav-buttons {
+    display: grid;
+    grid-template-columns: 8fr repeat(3, 1fr) 8fr;
+    grid-template-areas: 'prev source segment target next';
+  }
+}
+
+.segment-buttons .nav-button > a {
+  padding: 0.1em;
+  display: flex;
+  gap: 0.3em;
+}
+
+:where(.copy-button, .share-button) a {
+  display: flex;
+}
+
+.segment-buttons .fa {
+  width: 1.9rem;
+  height: 1.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: #a68537;
+  border: 2px solid #a68537;
+  font-size: 1rem;
+  border-radius: 50%;
+  padding: 0.5em;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.segment-buttons a:is(:hover, :focus) .fa {
+  background-color: #846a2c;
+  background-color: #a68537;
+  color: #fff;
+  outline: transparent;
+  transform: scale(1.15);
+}
+
+.nav-button a span:first-child {
+  order: 1;
+}
+
+.next-segment a {
+  direction: ltr;
+}
+
+.segment-buttons .share-buttons {
+  grid-template-columns: repeat(5, auto);
+}
+
+article[id^='post'].ecs-post
+  .elementor-inner-section:nth-child(1)
+  .elementor-inner-column:nth-child(1)
+  .jet-listing-dynamic-terms__link {
+  font-size: 1.3rem !important;
+}
+
+article[id^='post'].ecs-post
+  .elementor-inner-section:nth-child(1)
+  .elementor-inner-column:nth-child(2)
+  .jet-listing-dynamic-terms__link {
+  font-family: 'Lato', sans-serif;
+}
+
+.doctor-segment-link,
+.doctor-segment-link:visited {
+  text-decoration: unset;
+  color: unset;
+  cursor: pointer;
+}
+
+article[id^='post'] .text-right p {
+  font-size: 1.15rem !important;
+  line-height: 1.65;
+}
+
+article[id^='post'] .left-text p {
+  line-height: 1.75;
+  font-family: 'Source Serif Pro', serif;
+}
+
+.ha-social-share ul.ha-share-buttons {
+  margin-bottom: 0.3em;
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.ha-social-share ul.ha-share-buttons .ha-share-button {
+  margin: 0;
+}
+
+.doctor-segment-buttons {
+  display: grid;
+  grid-template-columns: 8fr repeat(3, 1fr) 8fr;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.doctor-segment-buttons > li {
+  margin: 0 auto;
+}
+
+.doctor-segment-buttons > a {
+  margin: 0;
+  padding: 0.2em 0.1em;
+  display: flex;
+  gap: 0.3em;
+  font-size: 1.2rem;
+  border-radius: 6px;
+  /*   border: 1px solid red; */
+}
+
+.doctor-segment-buttons > a:hover {
+  color: #5c4a1e;
+}
+
+.doctor-segment-buttons > a span:first-child {
+  order: 1;
+}
+
+.doctor-segment-buttons > a:last-child {
+  direction: ltr;
+}
+
+@media (min-width: 481px) {
+  article[id^='post'].ecs-post
+    .elementor-inner-section:nth-child(2)
+    .elementor-inner-column:first-child {
+    width: 40%;
+  }
+
+  article[id^='post'].ecs-post
+    .elementor-inner-section:nth-child(2)
+    .elementor-inner-column:nth-child(2) {
+    width: 60%;
+  }
+
+  article[id^='post'].ecs-post
+    .elementor-inner-section:nth-child(2)
+    .elementor-inner-column:first-child:after {
+    content: '';
+    width: 1px;
+    height: 70%;
+    position: absolute;
+    top: 5%;
+    left: 0;
+    border: 1px solid #aa8c3c50;
+    background-color: #71644275;
+    border-radius: 50%;
+  }
+}
+
+@media (min-width: 481px) {
+  .segment :is(.book-title, .segment-text) {
+    grid-template-columns: 2fr 3fr;
+  }
+}
+
+@media (max-width: 350px) {
+  .doctor-segment-buttons {
+    grid-template-columns: 8fr 1fr 8fr;
+    grid-template-areas:
+      '. . .'
+      'prev . next';
+  }
+
+  .doctor-segment-buttons > a {
+    order: 1;
+    font-size: 1.1rem;
+  }
+
+  .doctor-segment-buttons > a:first-child {
+    grid-area: prev;
+  }
+
+  .doctor-segment-buttons > a:last-child {
+    grid-area: next;
+  }
+}
+
+#main > div {
+  width: 90%;
+  padding: 0.5em 1em;
+  margin: 1em auto;
+}

@@ -1,0 +1,181 @@
+@font-face {
+  font-family: 'Uthman Taha';
+  src: local('KFGQPC Uthman Taha Naskh'),
+    url('../assets/fonts/UthmanTN1\ Ver10.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Uthman Taha';
+  font-weight: 700;
+  src: local('KFGQPC Uthman Taha Naskh'),
+    url('../assets/fonts/UthmanTN1B\ Ver10.otf') format('opentype');
+}
+
+/*
+  DIRECTION
+*/
+
+.ltr {
+  direction: ltr;
+}
+
+.rtl {
+  direction: rtl;
+}
+
+.menu-text {
+  font-size: 1.2rem;
+}
+
+.active-link {
+  cursor: default;
+}
+
+.active-link:is(:hover, :focus) {
+  transform: unset;
+}
+
+.active-link .menu-text {
+  color: #a68537;
+}
+
+/*
+  RADIO BUTTONS
+*/
+
+input:where([type='radio'], [type='checkbox']) {
+  accent-color: #a68537;
+}
+
+input:where([type='radio'], [type='checkbox']) {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+input:where([type='radio'], [type='checkbox']) + label {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0em 0.5em;
+  border-radius: 25px;
+  border: 2px solid #58a437;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 300ms;
+}
+
+input:where([type='radio'], [type='checkbox']) + label:where(:hover, :focus) {
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.4);
+}
+
+input:where([type='radio'], [type='checkbox']):checked + label {
+  background-color: #aa8c3c;
+  color: #fff;
+}
+
+/*
+ MARK ELEMENT
+*/
+
+mark::before,
+mark::after {
+  clip-path: inset(100%);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+mark::before {
+  content: ' [highlight start] ';
+}
+
+mark::after {
+  content: ' [highlight end] ';
+}
+
+/*
+  TOOLTIP
+*/
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  position: absolute;
+  width: 6.4rem;
+  padding: 0.1em 0.5em;
+  z-index: 1;
+  bottom: 135%;
+  left: 0%;
+  margin-left: -40px;
+  text-align: center;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #fff;
+  background-color: #a68537;
+  opacity: 0;
+  transition: all 300ms;
+}
+
+.tooltip .tooltiptext.active {
+  background-color: green;
+}
+
+.tooltip .tooltiptext::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #a68537 transparent transparent transparent;
+}
+
+.tooltip .tooltiptext.active::after {
+  border-color: green transparent transparent transparent;
+}
+
+.tooltip:where(:hover, :focus) .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*
+  HEADER
+*/
+
+.header-social-inner-wrap {
+  display: none;
+}
+
+/*
+  FOOTER
+*/
+footer {
+  padding: 0.5em;
+  display: grid;
+  gap: 0.5em;
+  align-items: center;
+  text-align: center;
+  background-color: #343434;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer p a:hover {
+  color: #fff;
+}

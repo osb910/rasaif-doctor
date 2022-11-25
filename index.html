@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <title>طبيب الرَّصائف</title>
+  </head>
+  <body dir="auto">
+    <h1>طبيب الرَّصائف</h1>
+    <form class="options">
+      <div class="option color">
+        <label>لون التظليل</label>
+        <input name="color" type="color" id="highlight-color" value="#aa8c3c" />
+      </div>
+      <div class="option missing">
+        <label for="hideMissing"
+          >إخفاء السقط من النسخة
+          <input name="hideMissing" type="checkbox" id="hideMissing" />
+          <div for="hideMissing" aria-label="" title="" class="switch">
+            <span class="key"></span>
+          </div>
+        </label>
+      </div>
+    </form>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>

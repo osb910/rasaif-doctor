@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "version": "1.0",
+  "name": "طبيب الرَّصائف",
+  "description": "يُصلح من موقع الرصائف.\nRasaif Doctor: An extension that makes Rasaif website better.\nhttps://rasaif.com",
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "./assets/rasaif-doctor-icon.png"
+  },
+  "permissions": ["tabs", "activeTab", "scripting", "storage"],
+  "host_permissions": ["https://rasaif.com/*"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  }
+}

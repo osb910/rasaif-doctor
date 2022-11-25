@@ -1,0 +1,14 @@
+body {
+  background-color: #444;
+}
+
+.elementor-text-editor p {
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.elementor-text-editor p:not(:first-child) {
+  color: #a68537;
+  width: max-content;
+  border-bottom: 2px solid;
+}
