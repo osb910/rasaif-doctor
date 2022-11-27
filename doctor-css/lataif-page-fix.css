@@ -3,12 +3,12 @@ body {
 }
 
 .elementor-text-editor p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #444;
 }
 
+#main.dark .elementor-text-editor p:not(:first-child),
 .elementor-text-editor p:not(:first-child) {
   color: #a68537;
   width: max-content;
-  border-bottom: 2px solid;
 }

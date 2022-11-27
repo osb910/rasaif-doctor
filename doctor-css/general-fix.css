@@ -158,6 +158,10 @@ mark::after {
   color: #a68537;
 }
 
+.site-header-primary-section-left-center {
+  visibility: hidden;
+}
+
 /*
   FOOTER
 */
@@ -170,7 +174,7 @@ footer {
   background-color: #343434;
   color: #fff;
   font-size: 1.25rem;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 footer p {
@@ -181,22 +185,39 @@ footer p a:hover {
   color: #fff;
 }
 
-#main.dark {
+:is(#main, #content).dark,
+:is(#main, #content).dark :where(.post-4074, .post-4077, .post-40194) {
   background-color: #1f2125;
   color: #e7e9ea;
 }
 
-#main.dark p {
+:is(#main, #content).dark :where(h1, p, a span) {
   color: #e7e9ea;
 }
 
-header.dark {
+#masthead.dark {
   background-color: #8b8b8b90;
   color: #e7e9ea;
 }
 
-header.dark a span {
+#masthead.dark a span {
   /* color: #e7e9ea; */
+}
+
+.dark :is(.jet-popup__container, jet-popup__container-inner) {
+  background-color: #111;
+}
+
+section.error-404 .page-sub-title {
+  font-weight: 400;
+}
+
+.dark .error-404 * {
+  background-color: #343a40;
+}
+
+.dark .error-404 a:where(:hover, :focus) {
+  color: #e7e9ea;
 }
 
 /* Color Theme Swatches in Hex */

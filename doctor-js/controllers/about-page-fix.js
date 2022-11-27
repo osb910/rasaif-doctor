@@ -1,3 +1,7 @@
 const ps = Array.from(document.querySelectorAll('.elementor-text-editor p'));
 
-ps.at(-1).innerHTML = ps.at(-1).textContent;
+ps.forEach(p => (p.outerHTML = `<p>${p.textContent}</p>`));
+
+const resizers = document.querySelector('section');
+undefined;
+resizers.style.display = 'none';

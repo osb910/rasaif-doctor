@@ -60,8 +60,12 @@ h2.doctor-query-title.ar {
   border-radius: 25px;
   outline: unset;
   text-align: center;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   transition: all 400ms ease-in-out;
+}
+
+.doctor-search-input.en {
+  font-family: 'Source Serif Pro', sans-serif;
 }
 
 #doctor-search input.doctor-search-input:focus {
@@ -175,7 +179,7 @@ input[type='checkbox']:checked + label + .option-data {
   border-radius: 5px;
 }
 
-.elementor-pagination a.page-numbers:hover {
+.elementor-pagination a.page-numbers:where(:hover, :focus) {
   color: #fff;
   background-color: #343a40;
 }
@@ -183,6 +187,10 @@ input[type='checkbox']:checked + label + .option-data {
 .font-resizers {
   text-align: center;
   font-weight: 700;
+}
+
+.dark .font-resizers a:where(:hover, :focus) {
+  color: #e7e9ea;
 }
 
 @media (min-width: 481px) {

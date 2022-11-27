@@ -1,6 +1,7 @@
 import {
   fixAboutPage,
   fixMainPage,
+  fixContactPage,
   fixLataifPage,
   fixSearchResults,
   fixSingleSegmentPage,
@@ -34,14 +35,18 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 
     chrome.scripting.executeScript({
       target: {tabId},
-      files: ['./doctor-js/util/general-util.js', './doctor-js/general-fix.js'],
+      files: [
+        './doctor-js/util/general-util.js',
+        './doctor-js/util/doctor-util.js',
+        './doctor-js/general-fix.js',
+      ],
     });
 
     isMainPage && fixMainPage(tabId);
 
     isAboutPage && fixAboutPage(tabId);
 
-    // isContactPage && fixContactPage(tabId);
+    isContactPage && fixContactPage(tabId);
 
     isLataifPage && fixLataifPage(tabId);
 

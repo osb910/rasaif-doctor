@@ -1,5 +1,9 @@
 .wp-video {
-  margin: 1em;
+  margin: 0 auto;
+}
+
+.elementor-text-editor p:first-child {
+  margin-top: 1em;
 }
 
 .elementor-text-editor p {
@@ -7,3 +11,7 @@
   color: #444;
   font-size: 1.2rem;
 }
+
+/* .dark p {
+  color: #e7e9ea;
+} */

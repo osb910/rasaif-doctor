@@ -2,80 +2,105 @@
  * HEAD
  */
 
-// const faScript = document.createElement('script');
-// faScript.setAttribute('src', 'https://kit.fontawesome.com/109728983b.js');
-// faScript.setAttribute('crossorigin', 'anonymous');
+const fixHead = () => {
+  // const faScript = document.createElement('script');
+  // faScript.setAttribute('src', 'https://kit.fontawesome.com/109728983b.js');
+  // faScript.setAttribute('crossorigin', 'anonymous');
 
-const googleApisLink = document.createElement('link');
-googleApisLink.setAttribute('rel', 'preconnect');
-googleApisLink.setAttribute('href', 'https://fonts.googleapis.com');
+  const googleApisLink = document.createElement('link');
+  googleApisLink.setAttribute('rel', 'preconnect');
+  googleApisLink.setAttribute('href', 'https://fonts.googleapis.com');
 
-const googleFontsLink = document.createElement('link');
-googleFontsLink.setAttribute('rel', 'stylesheet');
-googleFontsLink.setAttribute(
-  'href',
-  'https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Source+Serif+Pro:wght@300;400;600;700;900&display=swap'
-);
+  const googleFontsLink = document.createElement('link');
+  googleFontsLink.setAttribute('rel', 'stylesheet');
+  googleFontsLink.setAttribute(
+    'href',
+    'https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Source+Serif+Pro:wght@300;400;600;700;900&display=swap'
+  );
 
-document.head.append(googleApisLink, googleFontsLink);
+  document.head.append(googleApisLink, googleFontsLink);
+};
 
 /**
  * HEADER
  */
 
-const currentPageLink = window.location.href;
-const menuLinks = Array.from(
-  document.querySelectorAll('header nav .menu-link')
-);
-const currentMenuLink = menuLinks.find(link => link.href === currentPageLink);
-menuLinks[0].querySelector('.menu-text').textContent = 'الرئيسة';
-currentMenuLink?.classList.add('active-link');
-currentMenuLink?.addEventListener('click', evt => {
-  evt.preventDefault();
-});
+const fixHeader = () => {
+  const currentPageLink = window.location.href;
+  const menuLinks = Array.from(
+    document.querySelectorAll('header nav .menu-link')
+  );
+  const currentMenuLink = menuLinks.find(link => link.href === currentPageLink);
+  menuLinks[0].querySelector('.menu-text').textContent = 'الرئيسة';
+  currentMenuLink?.classList.add('active-link');
+  currentMenuLink?.addEventListener('click', evt => {
+    evt.preventDefault();
+  });
+};
 
 /**
  * FOOTER
  */
-const footer = document.querySelector('footer');
 
-footer.innerHTML = `
-  <p>${getHijriGeorgianDate(new Date())}</p>
-  <p>جميع الحقوق محفوظة © الرصائف الفصاح للتراجم الصحاح</p>
-  <p>برمجة&nbsp;
-    <a href="http://lvlupksa.com/" target="_blank" rel="noreferrer">
-      lvlupksa
-    </a>
-  </p>
-  <p>صيانة&nbsp;
-    <a href="https://twitter.com/osb910" target="_blank" rel="noreferrer">
-      عُمر
-    </a>
-  </p>
-`;
+const fixFooter = () => {
+  const footer = document.querySelector('footer');
+
+  footer.innerHTML = `
+    <p>${getHijriGeorgianDate(new Date())}</p>
+    <p>جميع الحقوق محفوظة © الرصائف الفصاح للتراجم الصحاح</p>
+    <p>برمجة&nbsp;
+      <a href="http://lvlupksa.com/" target="_blank" rel="noreferrer">
+        lvlupksa
+      </a>
+    </p>
+    <p>صيانة&nbsp;
+      <a href="https://twitter.com/osb910" target="_blank" rel="noreferrer">
+        عُمر
+      </a>
+    </p>
+  `;
+};
 
 /**
  * 404
  */
 
-(() => {
+const fix404 = () => {
   const notFoundTitle = document.querySelector('.error-404 .page-title');
-  const notFoundSubTitle = document.querySelector('.error-404 .page-sub-title');
+  const notFoundSubtitle = document.querySelector('.error-404 .page-sub-title');
 
-  if (!notFoundTitle || !notFoundSubTitle) {
+  if (!notFoundTitle || !notFoundSubtitle) {
     return;
   }
 
   notFoundTitle.textContent = `ذهب الخادوم يبحث عن الصفحة ورجع بخُفَّي حُنين`;
 
-  notFoundSubTitle.textContent =
-    'جرِّب أن تُعيد البحث، أو إن شئت فارجع إلى الرئيسة.';
-})();
+  notFoundSubtitle.innerHTML = `جرِّب أن تُعيد البحث، أو إن شئت فارجع إلى <a href='https://rasaif.com'>الرئيسة</a>.`;
+};
 
-const main = document.body.querySelector('#main');
-const header = document.body.querySelector('header');
-main.classList.add('dark');
-header.classList.add('dark');
+const getTheme = async () => {
+  const {darkMode} = await getSettings(['darkMode']);
+  return darkMode;
+};
+
+const fixTheme = async () => {
+  const darkMode = await getTheme();
+  const main = document.body.querySelector('#main');
+  const page = document.body.querySelector('#content');
+  const header = document.body.querySelector('header');
+  darkMode && document.body.classList.add('dark');
+  darkMode && main?.classList?.add('dark');
+  darkMode && page?.classList?.add('dark');
+  darkMode && header.classList.add('dark');
+};
+
+window.addEventListener('load', async evt => {
+  await fixTheme();
+  fixHead();
+  fixHeader();
+  fixFooter();
+  fix404();
+});
 
 // [
 //   {

@@ -226,17 +226,26 @@ document.body.addEventListener('click', evt => {
     segmentsContainer.className = segmentsContainer.className.replace(
       /size(-?\d)/,
       (_, num) => {
-        if (fontResizerMinus) {
-          return +num <= -2 ? `size${num}` : `size${+num - 1}`;
-        }
+        return fontResizerMinus
+          ? +num <= -2
+            ? `size${num}`
+            : `size${+num - 1}`
+          : fontResizerAdd
+          ? +num >= 2
+            ? `size${num}`
+            : `size${+num + 1}`
+          : 'size0';
+        // if (fontResizerMinus) {
+        //   return +num <= -2 ? `size${num}` : `size${+num - 1}`;
+        // }
 
-        if (fontResizerReset) {
-          return `size0`;
-        }
+        // if (fontResizerReset) {
+        //   return `size0`;
+        // }
 
-        if (fontResizerAdd) {
-          return +num >= 2 ? `size${num}` : `size${+num + 1}`;
-        }
+        // if (fontResizerAdd) {
+        //   return +num >= 2 ? `size${num}` : `size${+num + 1}`;
+        // }
       }
     );
   }
@@ -255,6 +264,14 @@ document.body.addEventListener('mouseout', evt => {
   }
 });
 
+document.body.addEventListener('focusout', evt => {
+  const focusouted = evt.target;
+  const copyButton = focusouted.closest('.copy-button');
+  if (copyButton) {
+    restoreCopyTooltip(copyButton);
+  }
+});
+
 document.body.addEventListener('keydown', evt => {
   if (evt.key === 'Enter') {
     const focused = document.activeElement;
@@ -267,11 +284,14 @@ document.body.addEventListener('keydown', evt => {
   }
 });
 
-document.body.addEventListener('focusout', evt => {
-  const focusouted = evt.target;
-  const copyButton = focusouted.closest('.copy-button');
-  if (copyButton) {
-    restoreCopyTooltip(copyButton);
+document.addEventListener('input', evt => {
+  const inputEl = evt.target;
+  const searchInput = inputEl.closest('.doctor-search-input');
+  if (searchInput) {
+    const input = searchInput.value;
+    !!input.match(/(?!\p{Script=Arabic})[\p{N}\p{L}\p{P}]/u)
+      ? searchInput.classList.add('en')
+      : searchInput.classList.remove('en');
   }
 });
 

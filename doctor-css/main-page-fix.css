@@ -2,6 +2,10 @@ h2.eng {
   font-family: 'Source Serif Pro', sans-serif;
 }
 
+#main.dark h2 {
+  color: #e7e9ea;
+}
+
 .elementor-heading-title {
   cursor: default;
 }
@@ -19,6 +23,26 @@ form input[type='search']::placeholder {
 
 form input[type='text'] {
   display: none;
+}
+
+:where(.elementor-flip-box__back, .elementor-flip-box__front)
+  .elementor-flip-box__layer__description {
+  font-size: 1.1rem !important;
+}
+
+#main.dark .elementor-flip-box {
+  background-color: #343a40;
+}
+
+#main.dark :where(.elementor-flip-box__back, .elementor-flip-box__front) {
+  background-color: #343a40;
+  background-blend-mode: multiply;
+}
+
+#main.dark
+  :where(.elementor-flip-box__back, .elementor-flip-box__front)
+  .elementor-flip-box__layer__description {
+  color: #e7e9ea !important;
 }
 
 .elementor-flip-box__back

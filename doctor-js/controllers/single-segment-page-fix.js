@@ -1,6 +1,6 @@
 const segmentContainer = document.querySelector('main .post');
-const segmentId = Array.from(segmentContainer.classList)
-  .join(' ')
+const segmentId = Array.from(segmentContainer?.classList)
+  ?.join(' ')
   .match(/post-(\d+)/)[0];
 const arTitleEl = document.querySelector('a.jet-listing-dynamic-terms__link');
 const frnTitleEl = document.querySelector(

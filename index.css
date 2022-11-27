@@ -31,7 +31,7 @@ body {
   background-repeat: no-repeat;
   background-position: 50% 90%;
   background-blend-mode: luminosity;
-  color: #1e46a6;
+  color: #a68537;
   font-family: 'Uthman Taha';
   text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -49,14 +49,13 @@ h1 {
   width: 85%;
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: 0.25em;
 }
 
 .option {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.5em;
 }
 
 .option label {
@@ -78,12 +77,12 @@ h1 {
 label {
   font-size: 1.4rem;
   margin: 0.2em 0 0.5em;
-  text-shadow: 1px 1px 10px #1e46a640;
+  text-shadow: 1px 1px 10px #a6853740;
 }
 
 input[type='color'] {
   -webkit-appearance: none;
-  min-height: 1.7rem;
+  max-height: 1.5rem;
   border: 0;
   border-radius: 5px;
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3);
@@ -114,7 +113,7 @@ input[type='checkbox'] + .switch {
   justify-content: flex-start;
   align-items: center;
   background-color: transparent;
-  border: 2px solid #1e46a6;
+  border: 2px solid #343a40;
   border-radius: 1rem;
   cursor: pointer;
   box-sizing: content-box;
@@ -122,7 +121,7 @@ input[type='checkbox'] + .switch {
 }
 
 input[type='checkbox']:checked + .switch {
-  background-color: #1e46a680;
+  background-color: #343a4080;
   justify-content: flex-end;
 }
 
@@ -130,5 +129,5 @@ input[type='checkbox'] + .switch .key {
   width: calc(var(--switch-width) / 2);
   height: calc(var(--switch-width) / 2);
   border-radius: 50%;
-  background-color: #3fa67f;
+  background-color: #a68537;
 }

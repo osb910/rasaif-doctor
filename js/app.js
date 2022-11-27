@@ -9,13 +9,7 @@ export const fixMainPage = tabId => {
 
     chrome.scripting.executeScript({
       target: {tabId},
-      files: [
-        // util
-        './doctor-js/util/general-util.js',
-        './doctor-js/util/doctor-util.js',
-        // controllers
-        './doctor-js/controllers/main-page-fix.js',
-      ],
+      files: ['./doctor-js/controllers/main-page-fix.js'],
     });
   } catch (err) {
     console.log(err);
@@ -31,13 +25,18 @@ export const fixAboutPage = tabId => {
 
     chrome.scripting.executeScript({
       target: {tabId},
-      files: [
-        // util
-        './doctor-js/util/general-util.js',
-        './doctor-js/util/doctor-util.js',
-        // controllers
-        './doctor-js/controllers/about-page-fix.js',
-      ],
+      files: ['./doctor-js/controllers/about-page-fix.js'],
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const fixContactPage = tabId => {
+  try {
+    chrome.scripting.insertCSS({
+      target: {tabId},
+      files: ['./doctor-css/contact-page-fix.css'],
     });
   } catch (err) {
     console.log(err);
@@ -81,8 +80,6 @@ export const fixSearchResults = async tabId => {
         './doctor-js/views/search.js',
         // util
         './doctor-js/util/arabizeCount.js',
-        './doctor-js/util/general-util.js',
-        './doctor-js/util/doctor-util.js',
         // controllers
         './doctor-js/controllers/results-page-fix.js',
       ],
@@ -104,9 +101,6 @@ export const fixSingleSegmentPage = tabId => {
       files: [
         // views
         './doctor-js/views/segment.js',
-        // util
-        './doctor-js/util/general-util.js',
-        './doctor-js/util/doctor-util.js',
         // controllers
         './doctor-js/controllers/single-segment-page-fix.js',
       ],
