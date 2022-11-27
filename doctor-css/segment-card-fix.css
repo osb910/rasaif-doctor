@@ -46,7 +46,7 @@ blkgcalckdgnpbleipphfhfaefddogpb
   border-radius: 5px 5px 0 0;
 }
 
-.segment :is(.book-title, .segment-text) :is(h3, p) {
+.segment :where(.book-title, .segment-text) :where(h3, p) {
   margin: 0;
   padding-inline-end: 0.75em;
   line-height: 1.7;
@@ -58,6 +58,10 @@ blkgcalckdgnpbleipphfhfaefddogpb
   font-weight: 700;
   line-height: 1.8;
   color: #fff;
+}
+
+.segment .segment-text p {
+  transition: all 300ms ease-in-out;
 }
 
 .segment .frn-title {
@@ -74,13 +78,48 @@ blkgcalckdgnpbleipphfhfaefddogpb
   align-items: start;
 }
 
-.segment .ar-text {
+.size0 .segment .ar-text {
   font-size: 1.25rem;
+}
+
+.size1 .segment .ar-text {
+  font-size: 1.35rem;
+}
+
+.size2 .segment .ar-text {
+  font-size: 1.45rem;
+}
+
+.size-1 .segment .ar-text {
+  font-size: 1.15rem;
+}
+
+.size-2 .segment .ar-text {
+  font-size: 1.05rem;
 }
 
 .segment .frn-text {
   font-family: 'Source Serif Pro', serif;
+}
+
+.size0 .segment .frn-text {
   font-size: 1.05rem;
+}
+
+.size1 .segment .frn-text {
+  font-size: 1.1rem;
+}
+
+.size2 .segment .frn-text {
+  font-size: 1.15rem;
+}
+
+.size-1 .segment .frn-text {
+  font-size: 1rem;
+}
+
+.size-2 .segment .frn-text {
+  font-size: 0.95rem;
 }
 
 .segment .segment-text a {
@@ -104,6 +143,10 @@ blkgcalckdgnpbleipphfhfaefddogpb
   color: #222;
 }
 
+.dark .rasaif-match {
+  color: #e7e9ea;
+}
+
 .segment-buttons {
   padding: 0.5em 0;
   display: grid;
@@ -112,7 +155,11 @@ blkgcalckdgnpbleipphfhfaefddogpb
   border-radius: 0 0 5px 5px;
 }
 
-.segment-buttons :is(.nav-buttons, .share-buttons) {
+.dark .segment-buttons {
+  background-color: #343a40;
+}
+
+.segment-buttons :where(.nav-buttons, .share-buttons) {
   margin: 0 auto;
   padding: 0 0.2em;
   display: flex;
@@ -158,6 +205,7 @@ blkgcalckdgnpbleipphfhfaefddogpb
 .segment-buttons .nav-button > a {
   padding: 0.1em;
   display: flex;
+  align-items: center;
   gap: 0.3em;
 }
 
@@ -181,7 +229,7 @@ blkgcalckdgnpbleipphfhfaefddogpb
   transition: all 200ms ease-in-out;
 }
 
-.segment-buttons a:is(:hover, :focus) .fa {
+.segment-buttons a:where(:hover, :focus) .fa {
   background-color: #846a2c;
   background-color: #a68537;
   color: #fff;
@@ -199,6 +247,10 @@ blkgcalckdgnpbleipphfhfaefddogpb
 
 .segment-buttons .share-buttons {
   grid-template-columns: repeat(5, auto);
+}
+
+.dark .nav-button:where(:hover, :focus) span {
+  color: #e7e9ea;
 }
 
 article[id^='post'].ecs-post
@@ -307,7 +359,7 @@ article[id^='post'] .left-text p {
 }
 
 @media (min-width: 481px) {
-  .segment :is(.book-title, .segment-text) {
+  .segment :where(.book-title, .segment-text) {
     grid-template-columns: 2fr 3fr;
   }
 }

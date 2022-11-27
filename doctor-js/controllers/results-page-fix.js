@@ -91,7 +91,11 @@ const page = document.querySelector('#main');
 const segmentsContainer = document.querySelector('.ecs-posts');
 const paginationNav = document.querySelector('.elementor-pagination');
 const pageNumberEls = document.querySelectorAll('.page-numbers');
-const fontResizers = document.querySelectorAll('.zeno_font_resizer span a');
+const fnResizersContainer = document
+  .querySelector('.zeno_font_resizer_container')
+  .closest('.elementor-section');
+
+fnResizersContainer.style.display = 'none';
 
 const pagesNum =
   Array.from(pageNumberEls).at(-1)?.textContent.match(/\d+/)[0] ?? 1;
@@ -153,36 +157,27 @@ const getAllSegments = searchSettings => {
 };
 
 const insertDoctorElements = searchSettings => {
-  console.log(RGX.arLtr.test(searchSettings.query));
   page.insertAdjacentHTML(
     'afterbegin',
     `
       <section class='doctor-results-page-elements'>
         <h2 class='doctor-query-title ${
-          RGX.arLtr.test(searchSettings.query) && 'ar'
+          !!searchSettings.query.match(RGX.arLtr) && 'ar'
         }' dir='auto'>${searchSettings.query}</h2>
         <p class='doctor-results-count'>${resultsNumSentence(
           SEARCH_RESULTS.length
         )}</p>
         ${doctorSearchForm(searchSettings)}
         ${paginationNav?.outerHTML || ''}
+        <div class='font-resizers'>
+          <a href="#" class="font_resizer_minus" title="صغِّر الخط" style="font-size: 0.9em;">ض<span class="screen-reader-text">صغِّر الخط.</span></a>
+          <a href="#" class="font_resizer_reset" title="استرجع الأصل" style="font-size: 1.2em;">ض<span class="screen-reader-text">استرجع الأصل</span></a>
+          <a href="#" class="font_resizer_add" title="كبِّر الخط" style="font-size: 1.5em;">ض<span class="screen-reader-text">كبِّر الخط</span></a>
+        </div>
       </section>
     `
   );
 };
-
-/**
- * Fix Font Resizer Buttons
- */
-
-fontResizers[0].title = 'صغِّر الخط';
-fontResizers[0].innerHTML = `ض<span class='screen-reader-text'>صغِّر الخط.</span>`;
-
-fontResizers[1].title = 'استرجع الأصل';
-fontResizers[1].innerHTML = `ض<span class='screen-reader-text'>استرجع الأصل</span>`;
-
-fontResizers[2].title = 'كبِّر الخط';
-fontResizers[2].innerHTML = `ض<span class='screen-reader-text'>كبِّر الخط</span>`;
 
 /**
  * Doctor Search Engine
@@ -202,11 +197,13 @@ const doctorSubmit = target => {
 window.addEventListener('load', async evt => {
   // return;
   const searchSettings = await getSearchSettings();
+  document.title = `نتائج البحث — ${searchSettings.query}`;
   const currentSegments = getPageSegments(page);
   const page1Filtered = filterResults(currentSegments, searchSettings);
   SEARCH_RESULTS.push(...page1Filtered);
   renderSegments(page1Filtered, segmentsContainer, searchSettings);
   insertDoctorElements(searchSettings);
+  segmentsContainer.classList.add('size0');
   const docSearchForm = document.querySelector('#doctor-search');
   docSearchForm.addEventListener('submit', evt => {
     evt.preventDefault();
@@ -221,6 +218,29 @@ window.addEventListener('load', async evt => {
 document.body.addEventListener('click', evt => {
   const clicked = evt.target;
   const copyButton = clicked.closest(`.copy-button`);
+  if (clicked.closest('.font-resizers')) {
+    evt.preventDefault();
+    const fontResizerMinus = clicked.closest('.font_resizer_minus');
+    const fontResizerReset = clicked.closest('.font_resizer_reset');
+    const fontResizerAdd = clicked.closest('.font_resizer_add');
+    segmentsContainer.className = segmentsContainer.className.replace(
+      /size(-?\d)/,
+      (_, num) => {
+        if (fontResizerMinus) {
+          return +num <= -2 ? `size${num}` : `size${+num - 1}`;
+        }
+
+        if (fontResizerReset) {
+          return `size0`;
+        }
+
+        if (fontResizerAdd) {
+          return +num >= 2 ? `size${num}` : `size${+num + 1}`;
+        }
+      }
+    );
+  }
+
   if (copyButton) {
     const segmentCard = copyButton.closest('article');
     copySegmentContent(copyButton, segmentCard, SEARCH_RESULTS);

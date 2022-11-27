@@ -1,5 +1,5 @@
 .doctor-results-page-elements {
-  margin: 1em auto 0;
+  margin: 1.5em auto;
   display: grid;
   gap: 0.75em;
   justify-content: stretch;
@@ -66,17 +66,17 @@ h2.doctor-query-title.ar {
 
 #doctor-search input.doctor-search-input:focus {
   width: 70%;
-  border: 2px solid #58a437;
+  border: 2px solid #5a5045;
   filter: drop-shadow(1px 1px 25px rgba(0, 0, 0, 0.15));
   outline: unset;
 }
 
 #doctor-search input.doctor-search-input:focus + button[type='submit'] {
-  background-color: #58a437;
+  background-color: #5a5045;
 }
 
 #doctor-search button[type='submit']:where(:hover, :focus) {
-  background-color: #58a437;
+  background-color: #5a5045;
 }
 
 #doctor-search button[type='submit'] {
@@ -177,7 +177,12 @@ input[type='checkbox']:checked + label + .option-data {
 
 .elementor-pagination a.page-numbers:hover {
   color: #fff;
-  background-color: #333;
+  background-color: #343a40;
+}
+
+.font-resizers {
+  text-align: center;
+  font-weight: 700;
 }
 
 @media (min-width: 481px) {

@@ -31,7 +31,7 @@ body {
   background-repeat: no-repeat;
   background-position: 50% 90%;
   background-blend-mode: luminosity;
-  color: #336c7f;
+  color: #1e46a6;
   font-family: 'Uthman Taha';
   text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -78,7 +78,7 @@ h1 {
 label {
   font-size: 1.4rem;
   margin: 0.2em 0 0.5em;
-  text-shadow: 1px 1px 10px rgba(135, 206, 250, 0.4);
+  text-shadow: 1px 1px 10px #1e46a640;
 }
 
 input[type='color'] {
@@ -114,7 +114,7 @@ input[type='checkbox'] + .switch {
   justify-content: flex-start;
   align-items: center;
   background-color: transparent;
-  border: 2px solid #58a437;
+  border: 2px solid #1e46a6;
   border-radius: 1rem;
   cursor: pointer;
   box-sizing: content-box;
@@ -122,7 +122,7 @@ input[type='checkbox'] + .switch {
 }
 
 input[type='checkbox']:checked + .switch {
-  background-color: #58a43780;
+  background-color: #1e46a680;
   justify-content: flex-end;
 }
 
@@ -130,5 +130,5 @@ input[type='checkbox'] + .switch .key {
   width: calc(var(--switch-width) / 2);
   height: calc(var(--switch-width) / 2);
   border-radius: 50%;
-  background-color: #a68537;
+  background-color: #3fa67f;
 }

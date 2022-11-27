@@ -137,19 +137,22 @@ const getWhatsappShareLink = (url, text = '') =>
 const getTelegramShareLink = (url, text = '') =>
   `https://telegram.me/share/url?url=${encodeURIComponent(url)}`;
 
-const getTodayGeorgianHijri = () => {
-  const today = new Date();
+const getHijriGeorgianDate = date => {
   const options = {year: 'numeric', month: 'long', day: 'numeric'};
-  const todayGeorgian =
-    today.toLocaleDateString('ar-EG', options).replace(/\p{L}+/u, 'من $&') +
-    ' م';
 
-  const todayHijri = today
+  const hijriDate = date
     .toLocaleDateString('ar-SA', options)
     .replace(/محرم/, 'المحرم')
-    .replace(/\p{L}+/u, 'من $&');
+    .replace(/(?<=^[^١] )\p{L}+/u, 'من $&')
+    .replace(/^١/, 'غُرَّة');
 
-  const todayWeekday = today.toLocaleDateString('ar-EG', {weekday: 'long'});
+  const georgianDate =
+    date
+      .toLocaleDateString('ar-EG', options)
+      .replace(/\p{L}+/u, 'من $&')
+      .replace(/^١/, 'الأول') + ' م';
 
-  return `${todayWeekday}، ${todayHijri}، الموافق ${todayGeorgian}`;
+  const weekday = date.toLocaleDateString('ar-EG', {weekday: 'long'});
+
+  return `${weekday}، ${hijriDate}، الموافق ${georgianDate}`;
 };

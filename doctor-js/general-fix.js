@@ -37,11 +37,10 @@ currentMenuLink?.addEventListener('click', evt => {
 /**
  * FOOTER
  */
-// .site-below-footer-inner-wrap
 const footer = document.querySelector('footer');
 
 footer.innerHTML = `
-  <p>${getTodayGeorgianHijri()}</p>
+  <p>${getHijriGeorgianDate(new Date())}</p>
   <p>جميع الحقوق محفوظة © الرصائف الفصاح للتراجم الصحاح</p>
   <p>برمجة&nbsp;
     <a href="http://lvlupksa.com/" target="_blank" rel="noreferrer">
@@ -72,6 +71,11 @@ footer.innerHTML = `
   notFoundSubTitle.textContent =
     'جرِّب أن تُعيد البحث، أو إن شئت فارجع إلى الرئيسة.';
 })();
+
+const main = document.body.querySelector('#main');
+const header = document.body.querySelector('header');
+main.classList.add('dark');
+header.classList.add('dark');
 
 // [
 //   {
