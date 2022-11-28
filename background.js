@@ -3,6 +3,7 @@ import {
   fixMainPage,
   fixContactPage,
   fixLataifPage,
+  fixBookPage,
   fixSearchResults,
   fixSingleSegmentPage,
 } from './js/app.js';
@@ -22,6 +23,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
   const isAboutPage = /page_id=4074/.test(search);
   const isContactPage = /page_id=4077/.test(search);
   const isLataifPage = /page_id=40194/.test(search);
+  const isBookPage = /cat=\d+/.test(search);
   const isSingleSegment = /p=\d+/.test(search);
   console.log(`loading status: ${changeInfo.status}`);
 
@@ -49,6 +51,8 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
     isContactPage && fixContactPage(tabId);
 
     isLataifPage && fixLataifPage(tabId);
+
+    isBookPage && fixBookPage(tabId);
 
     isSearchResults && fixSearchResults(tabId);
 

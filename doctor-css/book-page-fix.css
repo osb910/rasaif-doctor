@@ -1,0 +1,22 @@
+.doctor-results-page-elements {
+  margin: 1.5em auto;
+  display: grid;
+  gap: 0.75em;
+  justify-content: stretch;
+  align-items: center;
+  text-align: center;
+}
+
+.font-resizers {
+  text-align: center;
+  font-weight: 700;
+}
+
+.dark .font-resizers a:where(:hover, :focus) {
+  color: #e7e9ea;
+}
+
+.jet-listing-grid__items {
+  padding: 0.5em;
+  gap: 1em;
+}

@@ -169,11 +169,7 @@ const insertDoctorElements = searchSettings => {
         )}</p>
         ${doctorSearchForm(searchSettings)}
         ${paginationNav?.outerHTML || ''}
-        <div class='font-resizers'>
-          <a href="#" class="font_resizer_minus" title="صغِّر الخط" style="font-size: 0.9em;">ض<span class="screen-reader-text">صغِّر الخط.</span></a>
-          <a href="#" class="font_resizer_reset" title="استرجع الأصل" style="font-size: 1.2em;">ض<span class="screen-reader-text">استرجع الأصل</span></a>
-          <a href="#" class="font_resizer_add" title="كبِّر الخط" style="font-size: 1.5em;">ض<span class="screen-reader-text">كبِّر الخط</span></a>
-        </div>
+        ${FontResizers()}
       </section>
     `
   );
@@ -195,7 +191,6 @@ const doctorSubmit = target => {
  */
 
 window.addEventListener('load', async evt => {
-  // return;
   const searchSettings = await getSearchSettings();
   document.title = `نتائج البحث — ${searchSettings.query}`;
   const currentSegments = getPageSegments(page);
@@ -221,7 +216,6 @@ document.body.addEventListener('click', evt => {
   if (clicked.closest('.font-resizers')) {
     evt.preventDefault();
     const fontResizerMinus = clicked.closest('.font_resizer_minus');
-    const fontResizerReset = clicked.closest('.font_resizer_reset');
     const fontResizerAdd = clicked.closest('.font_resizer_add');
     segmentsContainer.className = segmentsContainer.className.replace(
       /size(-?\d)/,
@@ -235,17 +229,6 @@ document.body.addEventListener('click', evt => {
             ? `size${num}`
             : `size${+num + 1}`
           : 'size0';
-        // if (fontResizerMinus) {
-        //   return +num <= -2 ? `size${num}` : `size${+num - 1}`;
-        // }
-
-        // if (fontResizerReset) {
-        //   return `size0`;
-        // }
-
-        // if (fontResizerAdd) {
-        //   return +num >= 2 ? `size${num}` : `size${+num + 1}`;
-        // }
       }
     );
   }

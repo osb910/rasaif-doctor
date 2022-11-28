@@ -54,6 +54,31 @@ export const fixLataifPage = tabId => {
   }
 };
 
+export const fixBookPage = tabId => {
+  try {
+    chrome.scripting.insertCSS({
+      target: {tabId},
+      files: [
+        './doctor-css/book-page-fix.css',
+        './doctor-css/segment-card-fix.css',
+      ],
+    });
+
+    chrome.scripting.executeScript({
+      target: {tabId},
+      files: [
+        // views
+        './doctor-js/views/segment.js',
+        './doctor-js/views/search.js',
+        './doctor-js/views/FontResizers.js',
+        './doctor-js/book-page-fix.js',
+      ],
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export const fixSearchResults = async tabId => {
   try {
     const highlightColor =
@@ -78,6 +103,7 @@ export const fixSearchResults = async tabId => {
         // views
         './doctor-js/views/segment.js',
         './doctor-js/views/search.js',
+        './doctor-js/views/FontResizers.js',
         // util
         './doctor-js/util/arabizeCount.js',
         // controllers

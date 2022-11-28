@@ -20,7 +20,7 @@ const getPageSegments = page => {
     page.querySelectorAll(`article[id^='post'].elementor-post`)
   );
 
-  const segmentsData = posts.map((post, idx) => {
+  const segmentsData = posts.map(post => {
     const segmentId = post.id;
     const bookId = Array.from(post.classList)
       .join(' ')
@@ -50,6 +50,42 @@ const getPageSegments = page => {
       bookUrl,
       prevUrl: getPrevUrl(segmentUrl),
       nextUrl: getNextUrl(segmentUrl),
+      // translator: ,
+      // transLang: ,
+    };
+  });
+
+  return segmentsData;
+};
+
+const getBookPageSegments = page => {
+  const posts = Array.from(page.querySelectorAll(`.jet-listing-grid__item`));
+
+  const segmentsData = posts.map(post => {
+    const segmentId = post.dataset.postId;
+    const segmentUrl = `https://rasaif.com/?p=${segmentId}`;
+    const bookUrl = window.location.href;
+    const arText =
+      post.querySelector('.text-right p')?.textContent.trim() || '';
+    const frnText =
+      post.querySelector('.left-text p')?.textContent.trim() || '';
+    const arTitle = post.querySelector(
+      '.elementor-inner-section:nth-child(1) .elementor-inner-column:nth-child(1) .jet-listing-dynamic-terms__link'
+    )?.textContent;
+    const frnTitle = post.querySelector(
+      '.elementor-inner-section:nth-child(1) .elementor-inner-column:nth-child(2) .jet-listing-dynamic-terms__link'
+    )?.textContent;
+
+    return {
+      id: segmentId,
+      arText,
+      frnText,
+      arTitle,
+      frnTitle,
+      segmentUrl,
+      prevUrl: getPrevUrl(segmentUrl),
+      nextUrl: getNextUrl(segmentUrl),
+      bookUrl,
       // translator: ,
       // transLang: ,
     };
@@ -176,6 +212,8 @@ const renderSegments = (
         bookUrl = '',
         arHtml,
         frnHtml,
+        prevUrl,
+        nextUrl,
       }) => {
         const segmentText = `«${arText}» — «${frnText}»\n${arTitle} — ${frnTitle}`;
 
@@ -184,8 +222,8 @@ const renderSegments = (
           frnText = frnHtml;
         }
 
-        const PrevNav = NavSegmentHTML('prev', getPrevUrl(segmentUrl));
-        const NextNav = NavSegmentHTML('next', getNextUrl(segmentUrl));
+        const PrevNav = NavSegmentHTML('prev', prevUrl);
+        const NextNav = NavSegmentHTML('next', nextUrl);
         const CopyButtons = `
         ${CopyButton('copy-source', 'انسخ الخلية')}
         ${CopyButton('copy-segment', 'انسخ الأصل')}

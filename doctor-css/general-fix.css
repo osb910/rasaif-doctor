@@ -204,8 +204,13 @@ footer p a:hover {
   /* color: #e7e9ea; */
 }
 
-.dark :is(.jet-popup__container, jet-popup__container-inner) {
-  background-color: #111;
+.dark .jet-popup__container *:not(:where(.jet-popup__close-button, .fa)) {
+  background-color: #343a40;
+}
+
+.dark .jet-popup__container p {
+  color: #e7e9ea;
+  font-size: 1.1rem;
 }
 
 section.error-404 .page-sub-title {
