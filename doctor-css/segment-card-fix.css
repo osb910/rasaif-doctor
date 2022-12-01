@@ -13,8 +13,11 @@
     url('../assets/fonts/UthmanTN1B\ Ver10.otf') format('opentype');
 }
 
-#main .post-4095 .ecs-posts {
-  align-items: start;
+@media (max-width: 1024px) {
+  #main .post-4095 .ecs-posts,
+  #content .jet-listing-grid__items {
+    align-items: start;
+  }
 }
 
 .segment {

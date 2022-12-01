@@ -20,17 +20,17 @@ body {
 body {
   width: 100%;
   min-width: 300px;
-  min-height: 300px;
+  min-height: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   background-color: aliceblue;
-  background-image: url('./assets/rasaif-icon.png');
+  background-image: url('./assets/rasaif-doctor-icon.png');
   background-size: 40%;
   background-repeat: no-repeat;
-  background-position: 50% 90%;
-  background-blend-mode: luminosity;
+  background-position: 50% 80%;
+  /* background-blend-mode: luminosity; */
   color: #a68537;
   font-family: 'Uthman Taha';
   text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
@@ -121,7 +121,7 @@ input[type='checkbox'] + .switch {
 }
 
 input[type='checkbox']:checked + .switch {
-  background-color: #343a4080;
+  background-color: #f04c0095;
   justify-content: flex-end;
 }
 
@@ -130,4 +130,21 @@ input[type='checkbox'] + .switch .key {
   height: calc(var(--switch-width) / 2);
   border-radius: 50%;
   background-color: #a68537;
+}
+
+footer {
+  margin: auto 0 0.5em;
+  font-size: 1.2rem;
+}
+
+footer a {
+  color: #343a40;
+  text-decoration: unset;
+  font-weight: 700;
+  transition: all 300ms ease-in-out;
+}
+
+footer a:where(:hover, :focus) {
+  color: #089921;
+  transform: scale(1.1);
 }

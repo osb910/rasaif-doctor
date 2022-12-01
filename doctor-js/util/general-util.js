@@ -144,13 +144,13 @@ const getHijriGeorgianDate = date => {
     .toLocaleDateString('ar-SA', options)
     .replace(/محرم/, 'المحرم')
     .replace(/(?<=^[^١] )\p{L}+/u, 'من $&')
-    .replace(/^١/, 'غُرَّة');
+    .replace(/^١\s/, 'غُرَّة ');
 
-  const georgianDate =
-    date
-      .toLocaleDateString('ar-EG', options)
-      .replace(/\p{L}+/u, 'من $&')
-      .replace(/^١/, 'الأول') + ' م';
+  const georgianDate = date
+    .toLocaleDateString('ar-EG', options)
+    .replace(/\p{L}+/u, 'من $&')
+    .replace(/^١\s/, 'الأول ');
+  georgianDate + ' م';
 
   const weekday = date.toLocaleDateString('ar-EG', {weekday: 'long'});
 

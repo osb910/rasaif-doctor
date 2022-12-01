@@ -1,7 +1,11 @@
 const ALL_SEGMENTS = [];
 const page = document.querySelector('#content');
+const cards = Array.from(page.querySelectorAll(`.jet-listing-grid__item`));
 const segmentsContainer = document.querySelector('.jet-listing-grid__items');
 const fnResizersContainer = document.querySelector('.elementor-section-boxed');
+const paginationNumbers = document.querySelectorAll(
+  '.jet-filters-pagination__link'
+);
 
 window.addEventListener('load', evt => {
   segmentsContainer.classList.add('size0');
@@ -10,14 +14,38 @@ window.addEventListener('load', evt => {
     <section class='doctor-results-page-elements'>
       ${FontResizers()}
     </section`;
-  const currentSegments = getBookPageSegments(page);
+  const currentSegments = getBookPageSegments(cards);
   ALL_SEGMENTS.push(...currentSegments);
   renderSegments(ALL_SEGMENTS, segmentsContainer);
-  // const resizeObserver = new ResizeObserver(entries => {
-  //   console.log(entries);
-  //   console.log('rerender');
-  // });
-  // setTimeout(() => resizeObserver.observe(document.body), 2000);
+
+  const callback = (mutations, observer) => {
+    mutations.forEach(mutation => {
+      if (mutation.type === 'childList') {
+        observer.disconnect();
+        const [, ...newCards] = mutation.addedNodes;
+        const newSegments = getBookPageSegments(newCards);
+        ALL_SEGMENTS.push(...newSegments);
+        renderSegments(ALL_SEGMENTS, segmentsContainer);
+        observer.observe(segmentsContainer, {
+          attributes: true,
+          childList: true,
+        });
+      }
+    });
+  };
+  const observer = new MutationObserver(callback);
+  observer.observe(segmentsContainer, {
+    attributes: true,
+    childList: true,
+  });
+  // .jet-filters-loading // loading class
+  paginationNumbers.forEach(
+    el =>
+      (el.textContent = el.textContent.replace(
+        /\d+/,
+        m => +m.toLocaleString('ar-EG')
+      ))
+  );
 });
 
 window.addEventListener('DOMContentLoaded', evt => {});

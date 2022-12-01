@@ -58,9 +58,7 @@ const getPageSegments = page => {
   return segmentsData;
 };
 
-const getBookPageSegments = page => {
-  const posts = Array.from(page.querySelectorAll(`.jet-listing-grid__item`));
-
+const getBookPageSegments = posts => {
   const segmentsData = posts.map(post => {
     const segmentId = post.dataset.postId;
     const segmentUrl = `https://rasaif.com/?p=${segmentId}`;

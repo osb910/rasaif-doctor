@@ -8,13 +8,6 @@ import {
   fixSingleSegmentPage,
 } from './js/app.js';
 
-// "icons": {
-//   "16": "icon16.png",
-//   "32": "icon32.png",
-//   "48": "icon48.png",
-//   "128": "icon128.png"
-// },
-
 chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
   const {hostname, search} = new URL(tab.url);
   const isRasaif = hostname === 'rasaif.com';

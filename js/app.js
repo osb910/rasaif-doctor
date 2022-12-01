@@ -9,7 +9,7 @@ export const fixMainPage = tabId => {
 
     chrome.scripting.executeScript({
       target: {tabId},
-      files: ['./doctor-js/controllers/main-page-fix.js'],
+      files: ['./doctor-js/main-page-fix.js'],
     });
   } catch (err) {
     console.log(err);
@@ -25,7 +25,7 @@ export const fixAboutPage = tabId => {
 
     chrome.scripting.executeScript({
       target: {tabId},
-      files: ['./doctor-js/controllers/about-page-fix.js'],
+      files: ['./doctor-js/about-page-fix.js'],
     });
   } catch (err) {
     console.log(err);
@@ -71,6 +71,7 @@ export const fixBookPage = tabId => {
         './doctor-js/views/segment.js',
         './doctor-js/views/search.js',
         './doctor-js/views/FontResizers.js',
+        // page
         './doctor-js/book-page-fix.js',
       ],
     });
@@ -106,8 +107,8 @@ export const fixSearchResults = async tabId => {
         './doctor-js/views/FontResizers.js',
         // util
         './doctor-js/util/arabizeCount.js',
-        // controllers
-        './doctor-js/controllers/results-page-fix.js',
+        // fixes
+        './doctor-js/results-page-fix.js',
       ],
     });
   } catch (err) {
@@ -127,8 +128,8 @@ export const fixSingleSegmentPage = tabId => {
       files: [
         // views
         './doctor-js/views/segment.js',
-        // controllers
-        './doctor-js/controllers/single-segment-page-fix.js',
+        // fixes
+        './doctor-js/single-segment-page-fix.js',
       ],
     });
   } catch (err) {
