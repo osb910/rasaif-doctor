@@ -8,11 +8,15 @@
 
 ## General Fixes
 
+- Added a dark mode option to the whole website
+- Highlighted the navigation button of the current page
+- Added hijri date along with georgian date in Arabic to the footer
+
 ## Fixes and Features in the Search Results Page
 
 - Redesigned the segment card
 - Highlighted the search query in each segment
-- Fixed the font of the English text using a serif font
+- Fixed the font of the English text
 - Made the segment URL open in a new tab, and made it limited to the source and target text
 - Added the book URL to both titles of the segment, which opens in a new tab
 - Increased the size of Arabic text a bit to make it more readable
