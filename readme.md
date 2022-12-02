@@ -1,8 +1,19 @@
-# Rasaif Doctor
+<h1 align="center">Rasaif Doctor | طبيب الرصائف</h1>
+<p align="center">A chrome extension that makes Rasaif website better.</p>
 
-# طبيب الرصائف
+<h2>Overview</h2>
 
-## A chrome extension that makes Rasaif website better. Made with HTML, CSS, and vanilla JavaScript. Only works on [rasaif.com](https://rasaif.com)
+This is an extension that fixes a lot of the issues in Rasaif website, and adds new functionality to the frontend. Built with HTML, CSS, and vanilla JavaScript. Only works on [rasaif.com](https://rasaif.com). Currently available on the [Chrome Web Store](https://bit.ly/rasaif-doctor-chrome).
+
+## Screenshots
+
+![App Screenshot 1](./assets/screenshots/Preview-1.png)
+![App Screenshot 2](./assets/screenshots/Preview-2.png)
+![App Screenshot 3](./assets/screenshots/Preview-3.png)
+![App Screenshot 4](./assets/screenshots/Preview-4.png)
+![App Screenshot 5](./assets/screenshots/Preview-5.png)
+![App Screenshot 6](./assets/screenshots/Preview-6.png)
+![App Screenshot 6](./assets/screenshots/Preview-7.png)
 
 ## Features
 
